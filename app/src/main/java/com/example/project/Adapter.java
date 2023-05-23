@@ -36,7 +36,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         holder.countryView.setText(items.get(position).getcountry());
         holder.populationView.setText(items.get(position).getPopulation());
         holder.sqkmView.setText(items.get(position).getSquarekm());
-        holder.imageView.setImageResource(items.get(position).getFlag());
     }
 
     @Override
@@ -55,7 +54,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageview);
             countryView = itemView.findViewById(R.id.country);
             populationView = itemView.findViewById(R.id.population);
             sqkmView = itemView.findViewById(R.id.sqkm);
