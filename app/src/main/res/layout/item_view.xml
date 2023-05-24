@@ -4,34 +4,61 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp">
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/country"
         android:textColor="@color/cardview_dark_background"
         android:text="country"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/population"
-        android:textColor="@color/cardview_dark_background"
-        android:text="population"
-        android:layout_below="@id/country"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/sqkm"
-        android:textColor="@color/cardview_dark_background"
-        android:text="sqkm"
-        android:layout_below="@id/population"/>
+    
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/country"
+        android:id="@+id/linearpopulation"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Population: "/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/population"
+            android:textColor="@color/cardview_dark_background"
+            android:text="population"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearpopulation"
+        android:id="@+id/linearsqkm"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kvadratkilometer: "/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sqkm"
+            android:textColor="@color/cardview_dark_background"
+            android:text="sqkm" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_below="@id/linearsqkm"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="10dp"
-        android:background="#dad808"/>
+        android:background="#dad808" />
 
 
 </RelativeLayout>

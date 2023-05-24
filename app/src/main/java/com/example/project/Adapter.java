@@ -15,12 +15,15 @@ import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
-    Context context;
-    List<recycler_item> items;
 
-    public Adapter(Context context, List<recycler_item> items) {
-        this.context = context;
+    private List<recycler_item> items;
+    private LayoutInflater inflater;
+    public OnClickListener onClickListener;
+
+    public Adapter(Context context, List<recycler_item> items, OnClickListener onClickListener) {
+        this.inflater = LayoutInflater.from(context);
         this.items = items;
+        this.onClickListener = onClickListener;
     }
 
 
@@ -28,7 +31,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view,parent,false));
+        return new ViewHolder(inflater.inflate(R.layout.item_view,parent,false));
     }
 
     @Override
@@ -50,10 +53,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imageView;
         TextView countryView, populationView, sqkmView;
-        View.OnClickListener onClickListener;
 
-        public ViewHolder(@NonNull View itemView) {
+
+        ViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             countryView = itemView.findViewById(R.id.country);
             populationView = itemView.findViewById(R.id.population);
             sqkmView = itemView.findViewById(R.id.sqkm);
@@ -61,7 +65,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
         @Override
         public void onClick(View view) {
-            return;
+            //onClickListener.onClick(items.get(getAdapterPosition()));
+
         }
+    }
+
+    public interface OnClickListener {
+        void onClick(recycler_item item);
     }
 }
