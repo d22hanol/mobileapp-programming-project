@@ -12,6 +12,7 @@ public class About_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        aboutText = findViewById(R.id.textView);
 
         aboutText.setText("This app was made by Hannes Olin. It is for people who want to check basic information about neighbouring countries");
     }
